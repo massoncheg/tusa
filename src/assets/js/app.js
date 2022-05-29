@@ -1,26 +1,34 @@
-import axios from 'axios';
+// import axios from 'axios' ;
+window.onload = function () {
+  const container = document.getElementById("container");
+  const fp1 = document.querySelector("#frame-piece-1");
+  const fp2 = document.querySelector("#frame-piece-2");
+  const fp3 = document.querySelector("#frame-piece-3");
+  const fp4 = document.querySelector("#frame-piece-4");
+  
+  if (container) {
+    
+    let contWidth = container.offsetWidth
+    let contHeight = container.offsetHeight
 
-window.addEventListener('load', () => {
+    container.addEventListener("mousemove", (e) => {
+      let tX
+      let tY 
 
-  const api = 'http://www.colr.org/json/color/random';
-  const body = document.querySelector('body');
-
-  function randomColor() {
-    axios.get(api).then(res => {
-      let color = res.data.colors[0].hex;
-
-      if (!color) {
-        console.error('Random color could not be fetched.');
-      }
-
-      color = '#' + color;
-
-      body.style.backgroundColor = color;
-    }).catch(() => console.error('Random color could not be fetched.'));
+      e.offsetX <= contWidth/2 ? 
+      tX = (contWidth/2 - e.offsetX)*0.1
+      :
+      tX = -(e.offsetX - contWidth/2)*0.1
+      
+      e.offsetY <= contHeight/2 ? 
+      tY = (contHeight/2 - e.offsetY)*0.1
+      :
+      tY = -(e.offsetY - contHeight/2)*0.1
+      
+      fp1.style.transform = `translate(${tX}px, ${tY}px)`
+      fp2.style.transform = `translate(${-tX}px, ${-tY}px)`
+      fp3.style.transform = `translate(${tX}px, ${-tY}px)`
+      fp4.style.transform = `translate(${-tX}px, ${tY}px)`
+    });
   }
-
-  randomColor();
-
-  setInterval(randomColor, 8000);
-
-});
+}
