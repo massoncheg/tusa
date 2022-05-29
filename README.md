@@ -101,15 +101,15 @@ The Gulp Starter Kit offers two different build scripts:
 2. `npm start`: This is the normal development script used to build all files and run all tasks, but also to serve a development server and watch for changes.
 
 ### How can I use another CSS preprocessor than Sass?
-In case you prefer to use one of the other supported CSS preprocessors over Sass, you can simply create a new directory `src/assets/css-processor-name` which is where all your CSS preprocessor files have to be placed.
+In case you prefer to use one of the other supported CSS preprocessors over Sass, you can simply create a new directory `src/tusa/assets/css-processor-name` which is where all your CSS preprocessor files have to be placed.
 After you have moved all your code to the new folder, just make sure to delete the `sass` directory and everything should work as expected.
 
 Here's a list of the currently supported CSS preprocessors and the corresponding directory names:
 
-- Sass (`src/assets/sass`)
-- SCSS (`src/assets/scss`)
-- Less (`src/assets/less`)
-- Stylus (`src/assets/stylus`)
+- Sass (`src/tusa/assets/sass`)
+- SCSS (`src/tusa/assets/scss`)
+- Less (`src/tusa/assets/less`)
+- Stylus (`src/tusa/assets/stylus`)
 
 ### How can I specify for which browsers CSS code should be autoprefixed?
 The recommended way of specifying which browsers should be targeted by the CSS autoprefixer is to add a `browserslist` key to `package.json`:
