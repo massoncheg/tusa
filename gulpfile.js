@@ -37,7 +37,7 @@ const gulp                      = require('gulp'),
 
       src_folder                = './src/',
       src_assets_folder         = src_folder + 'assets/',
-      dist_folder               = './dist/',
+      dist_folder               = './docs/',
       dist_assets_folder        = dist_folder + 'assets/',
       node_modules_folder       = './node_modules/',
       dist_node_modules_folder  = dist_folder + 'node_modules/',
@@ -154,7 +154,7 @@ gulp.task('dev', gulp.series('html', 'pug', 'sass', 'less', 'stylus', 'js'));
 gulp.task('serve', () => {
   return browserSync.init({
     server: {
-      baseDir: [ 'dist' ]
+      baseDir: [ 'docs' ]
     },
     port: 3010,
     open: false
